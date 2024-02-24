@@ -9,7 +9,7 @@ metadata:
     executables.ai.sap.com/name: "House Price (Sklearn Example)"
   labels:
     scenarios.ai.sap.com/id: "learning-code"
-    ai.sap.com/version: "2.0"
+    ai.sap.com/version: "3.0"
 spec:
   imagePullSecrets:
     - name: rds-doc-secret # your docker registry secret
@@ -21,6 +21,9 @@ spec:
         template: mycodeblock1
 
   - name: mycodeblock1
+    metadata:
+      labels:
+          ai.sap.com/resourcePlan: infer.l  
     container:
       image: docker.io/rdssap/rds-house-price:02 # Your docker image name
       command: ["/bin/sh", "-c"]
